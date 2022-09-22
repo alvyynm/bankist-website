@@ -5,6 +5,7 @@
 const header = document.querySelector(".header");
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
+const navLinksContainer = document.querySelector(".nav__links");
 
 // Modal window
 
@@ -56,4 +57,16 @@ document
 btnScrollTo.addEventListener("click", function () {
   // const s1coords = section1.getBoundingClientRect();
   section1.scrollIntoView({ behavior: "smooth" });
+});
+
+// page navigation
+
+navLinksContainer.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  //Check which el was clicked and ignore other clicks
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
 });
