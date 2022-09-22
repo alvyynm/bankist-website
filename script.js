@@ -3,6 +3,9 @@
 ///////////////////////////////////////
 
 const header = document.querySelector(".header");
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
 // Modal window
 
 const modal = document.querySelector(".modal");
@@ -47,3 +50,10 @@ document
   .addEventListener("click", function () {
     message.remove();
   });
+
+// Smooth scroll to first section
+
+btnScrollTo.addEventListener("click", function () {
+  // const s1coords = section1.getBoundingClientRect();
+  section1.scrollIntoView({ behavior: "smooth" });
+});
